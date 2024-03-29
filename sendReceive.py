@@ -3,6 +3,25 @@ from lib_nrf24 import NRF24
 import time
 import spidev
 
+# This is a testing script to confirm communication between the RPi and
+# Arduino using the NRF24 module.  SPI must be enabled in raspi-config.  
+# The following GPIO connections are made:
+#
+#   NRF  |  RasPi
+# -----------------------------
+#   VCC  |   3.3V                       
+#   GND  |   GND        
+#   CSN  |   GPIO8  (SPI CE0)         
+#   CE   |   GPIO17  
+#   MOSI |   GPIO10 (SPI MOSI)
+#   SCK  |   GPIO11 (SPI SCLK)
+#   MISO |   GPIO9  (SPI MISO)  
+
+# This script sends a message out.  Once the message is received by the Arduino
+# it responds with a 'Hello World' response which will be seen in the terminal
+# output.
+
+
 # Setting up GPIO value type
 GPIO.setmode(GPIO.BCM)
 
