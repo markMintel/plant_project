@@ -46,7 +46,7 @@ radio.printDetails()
 
 def transmit(message):
     message = list(message)
-    receivedMessage = None
+    receivedMessage = "TEMP"
     response = {
         "receivedMessage":"SUCCESS",
         "moisture": None
@@ -84,9 +84,9 @@ def transmit(message):
         time.sleep(1)
     
     if "." in receivedMessage:
-        response["moisture"] = receivedMessage.split('.')[-1]
+        response["moisture"] = receivedMessage.split('.')[-1][0:3]
 
-    return 
+    return response
 
 
 
@@ -101,7 +101,8 @@ def water():
 def read():
     message = "GETREADING"
     response = transmit(message)
-    return response['moisture']
+    print(response) 
+    return response
 
 
 if __name__ == '__main__':
