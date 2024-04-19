@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, jsonify 
 import RPi.GPIO as GPIO
 from lib_nrf24 import NRF24
 import time
@@ -48,7 +48,7 @@ def transmit(message):
     message = list(message)
     receivedMessage = "TEMP"
     response = {
-        "receivedMessage":"SUCCESS",
+        "status":"success",
         "moisture": None
     }
 
@@ -102,7 +102,7 @@ def read():
     message = "GETREADING"
     response = transmit(message)
     print(response) 
-    return response
+    return jsonify(response)
 
 
 if __name__ == '__main__':
