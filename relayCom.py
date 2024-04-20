@@ -46,7 +46,7 @@ radio.setChannel(0x76)
 radio.setDataRate(NRF24.BR_1MBPS)
 
 # Set the power level based on how far the devices are to one another
-radio.setPALevel(NRF24.PA_MIN)
+radio.setPALevel(NRF24.PA_MAX)
 
 # Setting auto acknowledge
 radio.setAutoAck(True)
@@ -69,7 +69,7 @@ radio.printDetails()
 # Listen for the message
 #radio.startListening()
 
-message = list("TURNOFF")
+message = list("GETREADING")
 while len(message) < 32:
     message.append(0)
 

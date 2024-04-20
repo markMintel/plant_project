@@ -44,8 +44,8 @@ radio.openWritingPipe(pipes[0])
 radio.openReadingPipe(1, pipes[1])
 radio.printDetails()
 
-def transmit(message):
-    message = list(message)
+def transmit(org_message):
+    message = list(org_message)
     receivedMessage = "TEMP"
     response = {
         "status":"success",
@@ -78,13 +78,20 @@ def transmit(message):
         
         print("Our received message decodes to: {}".format(string))
 
+        if org_message == "TURNON":
+            break 
 
         receivedMessage = string
         radio.stopListening()
         time.sleep(1)
     
+    if org_message == "TURNON":
+        response = transmit("GETREADING")
+        return response 
+    
     if "." in receivedMessage:
         response["moisture"] = receivedMessage.split('.')[-1][0:3]
+        
 
     return response
 
@@ -95,7 +102,7 @@ def transmit(message):
 def water():
     message = "TURNON"
     response = transmit(message)
-    return "Your plant was watered!"
+    return jsonify(response)
 
 @app.route('/read')
 def read():
