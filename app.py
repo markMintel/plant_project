@@ -99,39 +99,39 @@ def transmit(org_message):
 
 
 @app.route('/water0')
-def water():
+def water0():
     message = "TURNON"
     response = transmit(message)
     return jsonify(response)
 
 @app.route('/read0')
-def read():
+def read0():
     message = "GETREADING"
     response = transmit(message)
     print(response) 
     return jsonify(response)
 
 @app.route('/water1')
-def water():
+def water1():
     message = "TURNON"
     response = transmit(message)
     return jsonify(response)
 
 @app.route('/read1')
-def read():
+def read1():
     message = "GETREADING"
     response = transmit(message)
     print(response) 
     return jsonify(response)
 
 @app.route('/water2')
-def water():
+def water2():
     message = "TURNON"
     response = transmit(message)
     return jsonify(response)
 
 @app.route('/read2')
-def read():
+def read2():
     message = "GETREADING"
     response = transmit(message)
     print(response) 
@@ -144,7 +144,7 @@ def water():
     return jsonify(response)
 
 @app.route('/read3')
-def read():
+def read3():
     message = "GETREADING"
     response = transmit(message)
     print(response) 
