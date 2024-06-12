@@ -1,4 +1,6 @@
 # plant_project
+The main purpose of this repository is to supply the code that allows communication between an Arduino(Uno) and a Raspberry Pi.  The intent is for the user to have access to this code to deploy their own projects with their own devices.  The web application currently allows for four different devices to be routed to different arduino's.  Though the ino file supplied is only set up with one pipe address.  To add more devices, new pipe_address will be necessary to set up communcation.  As this repo develops more, more flexible fuctionality will be added to make adding more devices more seamless.
+
 
 ## Raspberry Pi Set Up
 
